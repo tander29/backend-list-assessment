@@ -22,9 +22,15 @@
 # strings where the string length is 2 or more and the first
 # and last chars of the string are the same.
 # Note: python does not have a ++ operator, but += works.
+
+
 def match_ends(words):
     """Your code goes here.  Edit this docstring."""
-    return
+    count = 0
+    for word in words:
+        if len(word) > 1 and word[:1] == word[-1]:
+            count += 1
+    return count
 
 
 # B. front_x
@@ -36,7 +42,11 @@ def match_ends(words):
 # before combining them.
 def front_x(words):
     """Your code goes here.  Edit this docstring."""
-    return
+    x_list = list(filter(lambda x: x[0] == 'x', words))
+    else_list = list(filter(lambda x: x[0] != 'x', words))
+    x_list.sort()
+    else_list.sort()
+    return x_list + else_list
 
 
 # C. sort_last
@@ -46,8 +56,8 @@ def front_x(words):
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Had issues with this method vs str.sort()"""
+    return sorted(tuples, key=lambda x: x[1])
 
 
 # Simple provided test() function used in main() to print

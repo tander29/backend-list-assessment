@@ -14,9 +14,15 @@
 # all adjacent == elements have been reduced to a single element,
 # so [1, 2, 2, 3] returns [1, 2, 3]. You may create a new list or
 # modify the passed in list.
+
+
 def remove_adjacent(nums):
     """Your code goes here.  Edit this docstring."""
-    return
+    result = []
+    for num in nums:
+        if num not in result:
+            result.append(num)
+    return result
 
 
 # E. Given two lists sorted in increasing order, create and return a merged
@@ -25,8 +31,13 @@ def remove_adjacent(nums):
 # pass of both lists.
 def linear_merge(list1, list2):
     """Your code goes here.  Edit this docstring."""
-    return
-
+    # result = list1 + list2
+    # result.sort() doesn't return
+    # why can't I return result.sort?  I get an error?
+    # return result doesn't work
+    # return list(list1 + list2).sort() doesn't work
+    """why is the beleow method the only one to work of those that I tried?"""
+    return sorted(list1+list2)
 
 
 # Simple provided test() function used in main() to print
@@ -53,6 +64,7 @@ def main():
          ['aa', 'bb', 'cc', 'xx', 'zz'])
     test(linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb']),
          ['aa', 'aa', 'aa', 'bb', 'bb'])
+
 
 # Standard boilerplate (python idiom) to call the main() function.
 if __name__ == '__main__':
