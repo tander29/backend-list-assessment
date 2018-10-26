@@ -37,17 +37,25 @@ def remove_adjacent(nums):
 # pass of both lists.
 def linear_merge(list1, list2):
     """Your code goes here.  Edit this docstring."""
-    # result = list1 + list2
-    # result.sort() doesn't return
-    # why can't I return result.sort?  I get an error?
-    # return result doesn't work
-    # return list(list1 + list2).sort() doesn't work
-    """why is the beleow method the only one to work of those that I tried?"""
-    return sorted(list1+list2)
+    # return sorted(list1+list2)
+    # This one I am going to need an explanation on why I seem to be
+    # coding a  lot more then needed?  Is the below method a lot quicker or something?
+    # Found it on stack overflow I wasn't quite following the purpose of all this besides problem solving?
+    result = []
+    while list1 and list2:
+        if list1[0] < list2[0]:
+            result.append(list1.pop(0))
+        elif list1[0] > list2[0]:
+            result.append(list2.pop(0))
+    result.extend(list1)
+    result.extend(list2)
+    return result
 
 
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
+
+
 def test(got, expected):
     if got == expected:
         prefix = ' OK '
