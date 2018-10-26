@@ -42,10 +42,18 @@ def match_ends(words):
 # before combining them.
 def front_x(words):
     """Your code goes here.  Edit this docstring."""
-    x_list = list(filter(lambda x: x[0] == 'x', words))
-    else_list = list(filter(lambda x: x[0] != 'x', words))
-    x_list.sort()
-    else_list.sort()
+    # x_list = list(filter(lambda x: x[0] == 'x', words))
+    # else_list = list(filter(lambda x: x[0] != 'x', words))
+    # x_list.sort()
+    # else_list.sort()
+    # return x_list + else_list
+    x_list = []
+    else_list = []
+    for word in sorted(words):
+        if word[:1] == 'x':
+            x_list.append(word)
+        else:
+            else_list.append(word)
     return x_list + else_list
 
 

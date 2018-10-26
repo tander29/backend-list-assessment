@@ -19,9 +19,15 @@
 def remove_adjacent(nums):
     """Your code goes here.  Edit this docstring."""
     result = []
-    for num in nums:
-        if num not in result:
-            result.append(num)
+    # for num in nums:
+    #     if num not in result:
+    #         result.append(num)
+    # return result
+    for number in nums:
+        if not result:
+            result.append(number)
+        elif result[-1] != number:
+            result.append(number)
     return result
 
 
